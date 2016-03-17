@@ -73,6 +73,6 @@ Deleting the user to clean up
 
 
 ## Notes and Links
-* (https://github.com/doorkeeper-gem/doorkeeper)
-* (https://github.com/httprb/http/wiki/Authorization-Header)
-* (http://getpostman.com/)
+* https://github.com/doorkeeper-gem/doorkeeper
+* https://github.com/httprb/http/wiki/Authorization-Header
+* http://getpostman.com/
