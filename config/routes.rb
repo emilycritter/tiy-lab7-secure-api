@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :posts
-    post 'registrations' => 'registrations#create'
+    post 'users' => 'users#create'
+    delete 'users/:id' => 'users#delete'
     get 'me' => 'users#show'
   end
 
