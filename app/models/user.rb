@@ -3,5 +3,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   validates :username, presence: true
-  validates :username, uniqueness: true
+
+  ## Remove the uniqueness validation so I can re-run `api-runner.rb` while testing.
+  # validates :username, uniqueness: true
 end
