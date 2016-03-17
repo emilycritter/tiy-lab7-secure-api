@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  use_doorkeeper
+
+  root 'posts#show'
+
+  resources :posts
+
+  namespace :api do
+    resources :posts
+    post 'users' => 'users#create'
+    delete 'users/:id' => 'users#delete'
+    get 'me' => 'users#show'
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
