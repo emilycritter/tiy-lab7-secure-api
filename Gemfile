@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby '2.3.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.2'
 # Use postgresql as the database for Active Record
@@ -35,6 +35,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'minitest-rails'
+  gem 'minitest-rails-capybara'
+  gem 'launchy'
 end
 
 group :development do
@@ -45,3 +48,15 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
+gem 'bootstrap-sass'
+gem 'font-awesome-sass'
+gem "refile", require: "refile/rails"
+gem "refile-mini_magick"
+gem 'refile-postgres'
+gem "rails-erd"
+gem 'kaminari', '~> 0.16.3'
+gem 'kaminari-bootstrap'
