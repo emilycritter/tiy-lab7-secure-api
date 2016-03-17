@@ -57,6 +57,8 @@ gem 'font-awesome-sass'
 gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
 gem 'refile-postgres'
+
 gem "rails-erd"
 gem 'kaminari', '~> 0.16.3'
 gem 'kaminari-bootstrap'
+gem 'doorkeeper'
