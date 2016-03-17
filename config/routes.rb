@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+  use_doorkeeper
+
   root 'posts#show'
 
   resources :posts
 
   namespace :api do
     resources :posts
+    post 'registrations' => 'registrations#create'
+    get 'me' => 'users#show'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
