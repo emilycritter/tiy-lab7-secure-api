@@ -17,7 +17,11 @@ class Api::PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new post_params
+    # @post = Post.new post_params
+    @post = Post.new
+    @post.user_id = current_user.id
+    @post.title = params[:post][:title]
+    @post.content = params[:post][:content]
     if @post.save
       render :show
     else
