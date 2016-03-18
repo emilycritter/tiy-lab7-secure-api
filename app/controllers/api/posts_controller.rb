@@ -37,6 +37,18 @@ class Api::PostsController < ApplicationController
     head :ok
   end
 
+  def add_comment
+    @post = Post.find_by id: params[:id]
+    @comment = Comment.new
+    @comment.post_id = @post.id
+    @comment.comment_text = params[:comment_text]
+    if @comment.save
+      render :show
+    else
+      render json: @post.errors, status: 422
+    end
+  end
+
   private
 
   def current_user
@@ -45,6 +57,10 @@ class Api::PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :content)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:comment_text, :post_id)
   end
 
 end
