@@ -4,9 +4,6 @@ class Api::PostsController < ApplicationController
 
   def index
     query = Post.all.order("created_at desc")
-    if params[:user_id].present?
-      query = query.where(user_id params[:user_id])
-    end
     query = query.page(params[:page])
     query = query.per(25)
     @posts = query
@@ -17,11 +14,7 @@ class Api::PostsController < ApplicationController
   end
 
   def create
-    # @post = Post.new post_params
-    @post = Post.new
-    @post.user_id = current_user.id
-    @post.title = params[:post][:title]
-    @post.content = params[:post][:content]
+    @post = Post.new post_params
     if @post.save
       render :show
     else
@@ -51,7 +44,7 @@ class Api::PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :user_id)
+    params.require(:post).permit(:title, :content)
   end
 
 end
