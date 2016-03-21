@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     post 'users' => 'users#create'
     delete 'users/:id' => 'users#delete'
     get 'me' => 'users#show'
+    post 'posts/:id/comments' => 'posts#add_comment'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
