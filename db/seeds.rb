@@ -9,10 +9,7 @@ if User.all.blank?
   end
 end
 
-if Post.all.blank?
-  Post.create title: "First post", content: "Hi. This is my first post."
-  Post.create title: "My first post", content: "Hi. This is MY first post."
-
+if Post.count == 0
   15.times do
     post = Post.new
     post.title = Faker::Lorem.sentence
@@ -21,7 +18,7 @@ if Post.all.blank?
   end
 end
 
-if Comment.all.blank?
+if Comment.count == 0
   10.times do
     comment = Comment.new
     comment.comment_text = Faker::Lorem.sentence
