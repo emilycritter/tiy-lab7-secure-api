@@ -62,5 +62,5 @@ gem "rails-erd"
 gem 'kaminari', '~> 0.16.3'
 gem 'kaminari-bootstrap'
 gem 'doorkeeper'
-gem 'http', '~> 1.0', '>= 1.0.3'
+gem 'http'
 gem 'faker'
