@@ -39,9 +39,8 @@ class Api::PostsController < ApplicationController
 
   def add_comment
     @post = Post.find_by id: params[:id]
-    @comment = Comment.new
-    @comment.post_id = @post.id
-    @comment.comment_text = params[:comment_text]
+    @comment = Comment.new comment_params
+    @comment.post = @post
     if @comment.save
       render :show
     else
@@ -60,7 +59,7 @@ class Api::PostsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:comment_text, :post_id)
+    params.require(:comment).permit(:comment_text)
   end
 
 end
